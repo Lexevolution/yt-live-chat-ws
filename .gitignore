@@ -106,3 +106,4 @@ dist
 # Custom stuff
 config.json
 YTLWS.js
+!masterchat-1.2.0.tgz
