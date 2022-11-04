@@ -4,6 +4,8 @@ This is intended to be a WebSocket server that integrates with YouTube livestrea
 ## Download / Install
 You can find the latest download on the [releases page](https://github.com/Lexevolution/yt-live-chat-ws/releases).
 
+Run the executable from anywhere, will generate a `config.json` in the same folder as the executable, so it is recommended to put the executable in its own folder.
+
 ## Contributing
 When contributing, please fork this repo, then create a new branch, then submit a pull request.
 
