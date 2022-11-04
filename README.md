@@ -13,27 +13,28 @@ When contributing, please fork this repo, then create a new branch, then submit 
 
 ### Setup:
 - clone repo (or your fork of the repo):
-
-```git clone https://github.com/Lexevolution/yt-live-chat-ws.git```
-
+```
+git clone https://github.com/Lexevolution/yt-live-chat-ws.git
+```
 - Navigate to cloned repo directory and install required node packages
-
-```npm install```
-
+```
+npm install
+```
 - Edit `YTLWS.ts` to your heart's content
 
 ### Testing:
 - In repo directory, run:
-
-```npm run debug```
-
+```
+npm run debug
+```
 Then run:
-
-```node ./dist/YTLWS.cjs```
+```
+node ./dist/YTLWS.cjs
+```
 
 ### Building:
 - In repo directory, run:
-
-```npm run build```
-
+```
+npm run build
+```
 Two directories will be created. `dist` and `build`. `dist` contains the bundled, transpiled project, which is what you can use when testing/debugging with node. `build` contains the Windows and Linux binaries.
