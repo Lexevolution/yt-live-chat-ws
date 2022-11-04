@@ -2,14 +2,14 @@ import * as assert from "assert";
 import * as fs from "fs";
 import * as url from "url";
 import { formatColor, Masterchat, stringify as MSStringify } from "masterchat";
-import { WebSocket, WebSocketServer } from "ws";
+import { WebSocketServer } from "ws";
 
 interface Config {
     Port: number,
     Simplified: boolean
 }
 
-const currentDir = url.fileURLToPath(new URL('.', import.meta.url));
+const currentDir = (process.pkg) ? process.cwd() : __dirname;
 var config: Config;
 const configPath = currentDir + "/config.json";
 

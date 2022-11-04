@@ -6,5 +6,14 @@
     "masterchat": "file:masterchat-1.2.0.tgz",
     "typescript": "^4.8.4",
     "ws": "^8.9.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.15.13",
+    "pkg": "^5.8.0",
+    "shx": "^0.3.4"
+  },
+  "scripts": {
+    "clean": "shx rm -rf dist build",
+    "build": "esbuild ./YTLWS.ts --bundle --platform=node --outfile=dist/YTLWS.cjs && pkg ./dist/YTLWS.cjs --out-path=./build -t latest-linux,latest-win --compress GZip"
   }
 }
