@@ -31,9 +31,11 @@ const wss = new WebSocketServer({port: config.Port});
 var livestream: Masterchat;
 
 wss.on("connection", (ws) => {
+    console.log("Connected to websocket client.");
     ws.send("ID:system\n#000000\nConnected to websocket.");
     ws.on("message", async (data) => {
         var dataString: string = data.toString();
+        console.log(`Received: ${dataString}`);
 
         if (dataString.toLowerCase().startsWith("connect")){
             if (livestream != undefined){
@@ -43,12 +45,14 @@ wss.on("connection", (ws) => {
             var livestreamId: string = dataString.split(' ')[1];
             try{
                 livestream = await Masterchat.init(livestreamId);
+                console.log(`Found livestream at ${livestreamId}. Channel name: ${livestream.metadata.channelName}`);
                 ws.send(`CONNECT:${livestream.metadata.channelName}`);
                 ws.send(`ID:system\n#000000\n<color=orange>Connected to: ${livestream.metadata.channelName}</color>`);
                 livestream.listen();
             }
             catch (error){
                 ws.send(`ID:system\n#000000\nCouldn't connect to ${livestreamId}. ${error.message}`);
+                console.log(error.message);
             }
 
             try{
@@ -113,12 +117,14 @@ wss.on("connection", (ws) => {
             }
             catch (error){
                 ws.send(`ID:system\n#000000\nAn error has occurred: ${error.message}`);
+                console.log(error.message);
             }
         }
         else if (dataString == "disconnect"){
             if (livestream != undefined){
                 ws.send("DISCONNECT");
                 ws.send(`ID:system\n#000000\n<color=#FF4444>Disconnected from ${livestream.metadata.channelName}</color>`);
+                console.log(`Stopped listening to ${livestreamId!}. Channel name: ${livestream.metadata.channelName}`);
                 livestream.stop();
             }
         }
