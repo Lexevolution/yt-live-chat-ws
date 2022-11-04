@@ -6,6 +6,8 @@ You can find the latest download on the [releases page](https://github.com/Lexev
 
 Run the executable from anywhere, will generate a `config.json` in the same folder as the executable, so it is recommended to put the executable in its own folder.
 
+The `config.json` is used to set the port for the websocket server, and to set whether the output is simplified (required true for NeosVR). Setting simplified to false will output the json objects straight from Masterchat, which you can read the schema for [here](https://sigvt.github.io/masterchat/).
+
 ## Contributing
 When contributing, please fork this repo, then create a new branch, then submit a pull request.
 
